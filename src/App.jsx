@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
 import './App.css';
+import { useEffect, useState } from 'react';
 import { getAllPokemon, getPokemon } from './utils/pokemon';
+import Card from './components/Card/Card';
 
 function App() {
   // ENDPOINTの設定
@@ -37,11 +38,22 @@ function App() {
     fetchPokemonData();
   }, []);
 
-  console.log(pokemonData);
+  // console.log(pokemonData);
 
   return (
     <div className="App">
-      {loading ? <h1>ロード中・・・</h1> : <h1>ポケモンデータを取得しました</h1>}
+      {loading ? (
+        <h1>ロード中・・・</h1>
+      ) : (
+        <>
+          <div className="pokemonCardContainer">
+            {pokemonData.map((pokemon, i) => {
+              console.log(pokemon);
+              return <Card key={i} pokemon={pokemon} />;
+            })}
+          </div>
+        </>
+      )}
     </div>
   );
 }
