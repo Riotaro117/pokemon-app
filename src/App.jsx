@@ -2,6 +2,8 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { getAllPokemon, getPokemon } from './utils/pokemon';
 import Card from './components/Card/Card';
+import Navigation_bar from './components/Navigation_bar/Navigation_bar';
+
 
 function App() {
   // ENDPOINTの設定
@@ -41,20 +43,23 @@ function App() {
   console.log(pokemonData);
 
   return (
-    <div className="App">
-      {loading ? (
-        <h1>ロード中・・・</h1>
-      ) : (
-        <>
-          <div className="pokemonCardContainer">
-            {pokemonData.map((pokemon, i) => {
-              // console.log(pokemon);
-              return <Card key={i} pokemon={pokemon} />;
-            })}
-          </div>
-        </>
-      )}
-    </div>
+    <>
+      <Navigation_bar />
+      <div className="App">
+        {loading ? (
+          <h1>ロード中・・・</h1>
+        ) : (
+          <>
+            <div className="pokemonCardContainer">
+              {pokemonData.map((pokemon, i) => {
+                // console.log(pokemon);
+                return <Card key={i} pokemon={pokemon} />;
+              })}
+            </div>
+          </>
+        )}
+      </div>
+    </>
   );
 }
 
