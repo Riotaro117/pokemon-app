@@ -4,12 +4,16 @@ import { getAllPokemon, getPokemon } from './utils/pokemon';
 import Card from './components/Card/Card';
 import Navigation_bar from './components/Navigation_bar/Navigation_bar';
 
-
 function App() {
   // ENDPOINTの設定
   const initialURL = 'https://pokeapi.co/api/v2/pokemon';
+
+  // ロード画面の状態を格納
   const [loading, setLoading] = useState(true);
+  // ポケモンのデータの状態を格納
   const [pokemonData, setPokemonData] = useState([]);
+  // 次のページの状態を格納するuseState
+  const [nextURL, setNextURL] = useState('');
 
   // ポケモン１匹ずつのデータを取得してくる
   const loadPokemon = async (data) => {
@@ -28,11 +32,14 @@ function App() {
     const fetchPokemonData = async () => {
       // 全てのポケモンデータを取得
       let res = await getAllPokemon(initialURL);
-      // console.log(res)
+      // console.log(res);
 
       // 各ポケモンの詳細なデータを取得
       loadPokemon(res.results);
-      // console.log(res.results)
+      console.log(res.results);
+
+      // 次のポケモンのデータを取得
+      setNextURL(res.next);
 
       // ちゃんとロードが完了したため、ロード画面は必要ないfalse
       setLoading(false);
@@ -40,7 +47,18 @@ function App() {
     fetchPokemonData();
   }, []);
 
-  console.log(pokemonData);
+  // console.log(pokemonData);
+
+  const handlePrevPage = () => {};
+  const handleNextPage = async () => {
+    setLoading(true);
+    // 次のポケモンの詳細なデータを取得
+    let data = await getAllPokemon(nextURL);
+    console.log(data);
+    // 次のポケモンを読み込む
+    await loadPokemon(data.results);
+    setLoading(false);
+  };
 
   return (
     <>
@@ -52,9 +70,13 @@ function App() {
           <>
             <div className="pokemonCardContainer">
               {pokemonData.map((pokemon, i) => {
-                // console.log(pokemon);
+                console.log(pokemon);
                 return <Card key={i} pokemon={pokemon} />;
               })}
+            </div>
+            <div className="btn">
+              <button onClick={handlePrevPage}>前へ</button>
+              <button onClick={handleNextPage}>次へ</button>
             </div>
           </>
         )}
