@@ -4,9 +4,16 @@
 
 > 小さな学習用プロジェクト。React（Vite）を使ってポケモン図鑑を表示するシンプルなアプリです。
 Reactの学習をアウトプットするために作成しました。
-参考にしてサイトは以下の通りです。
+参考にしたサイトは以下の通りです。
 「Reactを使って「ポケモン図鑑」「ブログ」「ノートメモアプリ」の3種類のアプリを構築する講座です。Reactの基礎は学び終えたからもっと実践的なアプリケーションを作りたい！応用が効くアプリ開発力を鍛えたい！という方は必見の講座内容です。」
 https://www.udemy.com/course/react-3project-app-udemy/?couponCode=KEEPLEARNING
+
+
+
+https://github.com/user-attachments/assets/cf28c175-e4b7-438a-a21b-096d9f1f029e
+
+
+
 
 ---
 
@@ -82,19 +89,6 @@ package.json
 
 （詳細は実際のファイルを参照してください）
 
-## � スクリーンショット
-
-以下はデモ画像です（`public/screenshot-example.svg` を参照）。実際のスクリーンショットを `public/` に置き、パスを更新してください。
-
-![Screenshot](/screenshot-example.svg)
-
-### 追加手順
-
-1. スクリーンショット画像を `public/` に追加（例: `screenshot.png`）
-2. README の画像パスを `/screenshot.png` に更新
-
-> 推奨サイズ: 横 1200px × 縦 600px（レスポンシブ対応）
-
 ## �💡 作業のヒント
 
 - コンポーネントを追加する際は `components/` 下にフォルダを作成し、CSS を分離すると管理しやすいです。
@@ -103,24 +97,3 @@ package.json
 ## 🧪 テスト
 
 - 現状テストは含まれていません。必要なら Jest や React Testing Library の導入を検討してください。
-
-## 🤝 貢献
-
-1. Fork を作成
-2. ブランチを作る: `feature/your-feature`
-3. 変更をコミット
-4. PR を作成
-
-PR の際は `npm run lint` を実行し、既存のスタイルガイドに従ってください。
-
-## 📝 ライセンス
-
-- 明示的な指定が無い場合はプロジェクトに適したライセンス（例: MIT）を追加することを推奨します。
-
-## 📫 作者 / 連絡先
-
-- Author: あなたの名前（必要に応じて更新してください）
-
----
-
-必要ならこの README にデプロイ手順、スクリーンショット、使用 API の詳細（例: PokeAPI の使用方法）などを追加します。✨
